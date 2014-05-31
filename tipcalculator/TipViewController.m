@@ -11,10 +11,16 @@
 @interface TipViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *billTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
-@property (weak, nonatomic) IBOutlet UITextField *partyTextField;
-@property (weak, nonatomic) IBOutlet UILabel *perPersonLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *billTotal;
+@property (weak, nonatomic) IBOutlet UILabel *grandTotal;
+
+@property (weak, nonatomic) IBOutlet UISlider *splitSlider;
+@property (weak, nonatomic) IBOutlet UISlider *tipSlider;
+@property (weak, nonatomic) IBOutlet UILabel *tipSliderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *splitSliderLabel;
+@property (weak, nonatomic) IBOutlet UIButton *clearAllButton;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 
 - (IBAction)onTap:(id)sender;
 - (void) updateValues;
@@ -39,6 +45,22 @@
     
     [self.billTextField becomeFirstResponder];
     self.billTextField.delegate = self;
+    self.billTextField.textColor = [UIColor lightGrayColor];
+    
+    [self.billTextField addTarget:self action:@selector(textFieldUpdated) forControlEvents:UIControlEventEditingChanged];
+
+}
+
+- (void) textFieldUpdated {
+    self.billTextField.textColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+    NSMutableString *billAmountString = [NSMutableString stringWithString:self.billTextField.text];
+    [billAmountString replaceOccurrencesOfString:@"$" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0,billAmountString.length)];
+     [billAmountString replaceOccurrencesOfString:@"." withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0,billAmountString.length)];
+    
+    float dollarAmount = [billAmountString doubleValue] * 0.01;
+    
+    self.billTextField.text = [NSString stringWithFormat:@"$%.2f", dollarAmount];
+    [self updateValues];
 }
 
 - (IBAction)onTap:(id)sender {
@@ -46,29 +68,54 @@
     [self updateValues];
 }
 
+- (void) resetCalculator {
+    [self.billTextField setText:@"$0.00"];
+
+    self.tipLabel.text = @"$0.00";
+    self.billTotal.text = @"$0.00";
+    self.grandTotal.text = @"$0.00";
+    
+    [self.tipSlider setValue:20];
+    [self.splitSlider setValue:1];
+     self.billTextField.textColor = [UIColor lightGrayColor];
+    
+    [self.billTextField becomeFirstResponder];
+    
+    [self updateValues];
+    
+}
+- (IBAction)clearAllTapped:(id)sender {
+    [self resetCalculator];
+}
+
+
 - (void)updateValues {
-    float billAmount = [self.billTextField.text floatValue];
-    int partySize;
-    if (self.partyTextField.text && self.partyTextField.text.length > 0) {
-        partySize = [self.partyTextField.text intValue];
-    } else {
-        partySize = 1;
+    
+    NSMutableString *billAmountString = [NSMutableString stringWithString:self.billTextField.text];
+    [billAmountString replaceOccurrencesOfString:@"$" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0,billAmountString.length)];
+        
+    float billAmount = [billAmountString doubleValue];
+    float tipPercentage = self.tipSlider.value * 0.01;
+    float splitValue = self.splitSlider.value;
+    
+    float totalTip = billAmount * tipPercentage;
+    float personalTip = totalTip / splitValue;
+    float personalTotal = billAmount / splitValue;
+    float grandTotal = personalTip + personalTotal;
+    
+    self.tipLabel.text = [NSString stringWithFormat:@"$%.2f", personalTip];
+    
+    self.billTotal.text = [NSString stringWithFormat:@"$%.2f", personalTotal];
+    
+    self.grandTotal.text = [NSString stringWithFormat:@"$%.2f", grandTotal];
+    
+    self.tipSliderLabel.text = [NSString stringWithFormat:@"TIP %.f%%", self.tipSlider.value];
+    self.splitSliderLabel.text = [NSString stringWithFormat:@"%.f WAYS", self.splitSlider.value];
+    if (self.splitSlider.value == 1.0) {
+        self.splitSliderLabel.text = @"NO SPLIT";
     }
     
     
-    
-    NSArray *tipValues = @[@(0.1), @(0.15), @(0.2)];
-    NSUInteger tipControlIndex = self.tipControl.selectedSegmentIndex;
-    NSNumber *tipValue = tipValues[tipControlIndex];
-    
-    float tipAmount = billAmount * [tipValue floatValue];
-    float totalAmount = ceilf(tipAmount + billAmount);
-    
-    self.tipLabel.text = [NSString stringWithFormat: @"$%0.2f", totalAmount-billAmount];
-    self.totalLabel.text = [NSString stringWithFormat: @"$%0.2f", totalAmount];
-    self.perPersonLabel.text = [NSString stringWithFormat: @"$%0.2f", totalAmount/partySize];
-    
-    // roundf(number)
     
 }
 
@@ -77,6 +124,47 @@
     NSLog(@"location: %i length: %i",range.location,range.length);
     
     return YES;
+}
+- (IBAction)splitSliderValueChanged:(id)sender {
+
+    int newValue = (int)ceil(self.splitSlider.value);
+    [self.splitSlider setValue:newValue animated:YES];
+    
+    [self updateValues];
+
+}
+
+- (IBAction)tipSliderValueChanged:(id)sender {
+    
+    int nextInteger = (int)ceil(self.tipSlider.value);
+    int nextValue = 25;
+    
+    if (nextInteger <= 5) {
+        nextValue = 0;
+    }
+    
+    if (nextInteger > 5 && nextInteger <= 10) {
+        nextValue = 5;
+    }
+    
+    if (nextInteger > 10 && nextInteger <= 15) {
+        nextValue = 10;
+    }
+    
+    if (nextInteger > 15 && nextInteger <= 20) {
+        nextValue = 15;
+    }
+    
+    if (nextInteger > 20 && nextInteger < 25) {
+        nextValue = 20;
+    }
+    
+    
+    [self.tipSlider setValue:nextValue animated:YES];
+    
+
+    
+    [self updateValues];
 }
 
 @end
