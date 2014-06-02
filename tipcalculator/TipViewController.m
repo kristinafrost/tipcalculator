@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *splitSliderLabel;
 @property (weak, nonatomic) IBOutlet UIButton *clearAllButton;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
+@property (weak, nonatomic) IBOutlet UILabel *perPersonLabel;
 
 - (IBAction)onTap:(id)sender;
 - (void) updateValues;
@@ -33,7 +34,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Tip Calculator";
+        self.title = @"TipMe";
     }
     return self;
 }
@@ -52,7 +53,7 @@
 }
 
 - (void) textFieldUpdated {
-    self.billTextField.textColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
+    self.billTextField.textColor = [UIColor darkGrayColor];
     NSMutableString *billAmountString = [NSMutableString stringWithString:self.billTextField.text];
     [billAmountString replaceOccurrencesOfString:@"$" withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0,billAmountString.length)];
      [billAmountString replaceOccurrencesOfString:@"." withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0,billAmountString.length)];
@@ -114,8 +115,14 @@
     if (self.splitSlider.value == 1.0) {
         self.splitSliderLabel.text = @"NO SPLIT";
     }
-    
-    
+    if (self.splitSlider.value == 1.0) {
+        self.perPersonLabel.hidden = true;
+        
+    }
+    else
+    {
+        self.perPersonLabel.hidden = false;
+    }
     
 }
 

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4490EA04193C00E80059C0AD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4490EA03193C00E80059C0AD /* Media.xcassets */; };
 		44951CD619359CE7006D8A8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44951CD519359CE7006D8A8E /* Foundation.framework */; };
 		44951CD819359CE7006D8A8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44951CD719359CE7006D8A8E /* CoreGraphics.framework */; };
 		44951CDA19359CE7006D8A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44951CD919359CE7006D8A8E /* UIKit.framework */; };
 		44951CE019359CE7006D8A8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44951CDE19359CE7006D8A8E /* InfoPlist.strings */; };
 		44951CE219359CE7006D8A8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44951CE119359CE7006D8A8E /* main.m */; };
 		44951CE619359CE7006D8A8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44951CE519359CE7006D8A8E /* AppDelegate.m */; };
-		44951CE819359CE7006D8A8E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44951CE719359CE7006D8A8E /* Images.xcassets */; };
 		44951CEF19359CE7006D8A8E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44951CEE19359CE7006D8A8E /* XCTest.framework */; };
 		44951CF019359CE7006D8A8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44951CD519359CE7006D8A8E /* Foundation.framework */; };
 		44951CF119359CE8006D8A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44951CD919359CE7006D8A8E /* UIKit.framework */; };
@@ -21,6 +21,7 @@
 		44951CFB19359CE8006D8A8E /* tipcalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44951CFA19359CE8006D8A8E /* tipcalculatorTests.m */; };
 		44951D0719359EC7006D8A8E /* TipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44951D0519359EC7006D8A8E /* TipViewController.m */; };
 		44951D0819359EC7006D8A8E /* TipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44951D0619359EC7006D8A8E /* TipViewController.xib */; };
+		44C6AC48193A9F8100236151 /* Cups-of-Coffee-and-Tip-AYP1358167.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 44C6AC47193A9F8100236151 /* Cups-of-Coffee-and-Tip-AYP1358167.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4490EA03193C00E80059C0AD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Media.xcassets; sourceTree = "<group>"; };
 		44951CD219359CE7006D8A8E /* tipcalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipcalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44951CD519359CE7006D8A8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44951CD719359CE7006D8A8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,7 +46,6 @@
 		44951CE319359CE7006D8A8E /* tipcalculator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "tipcalculator-Prefix.pch"; sourceTree = "<group>"; };
 		44951CE419359CE7006D8A8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		44951CE519359CE7006D8A8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		44951CE719359CE7006D8A8E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		44951CED19359CE7006D8A8E /* tipcalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tipcalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44951CEE19359CE7006D8A8E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		44951CF619359CE8006D8A8E /* tipcalculatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tipcalculatorTests-Info.plist"; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		44951D0419359EC7006D8A8E /* TipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipViewController.h; sourceTree = "<group>"; };
 		44951D0519359EC7006D8A8E /* TipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipViewController.m; sourceTree = "<group>"; };
 		44951D0619359EC7006D8A8E /* TipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipViewController.xib; sourceTree = "<group>"; };
+		44C6AC47193A9F8100236151 /* Cups-of-Coffee-and-Tip-AYP1358167.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Cups-of-Coffee-and-Tip-AYP1358167.jpg"; path = "../../Downloads/Cups-of-Coffee-and-Tip-AYP1358167.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				44951CF419359CE8006D8A8E /* tipcalculatorTests */,
 				44951CD419359CE7006D8A8E /* Frameworks */,
 				44951CD319359CE7006D8A8E /* Products */,
+				44C6AC47193A9F8100236151 /* Cups-of-Coffee-and-Tip-AYP1358167.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,10 +117,10 @@
 			children = (
 				44951CE419359CE7006D8A8E /* AppDelegate.h */,
 				44951CE519359CE7006D8A8E /* AppDelegate.m */,
-				44951CE719359CE7006D8A8E /* Images.xcassets */,
 				44951CDC19359CE7006D8A8E /* Supporting Files */,
 				44951D0419359EC7006D8A8E /* TipViewController.h */,
 				44951D0519359EC7006D8A8E /* TipViewController.m */,
+				4490EA03193C00E80059C0AD /* Media.xcassets */,
 				44951D0619359EC7006D8A8E /* TipViewController.xib */,
 			);
 			path = tipcalculator;
@@ -229,7 +232,8 @@
 			files = (
 				44951D0819359EC7006D8A8E /* TipViewController.xib in Resources */,
 				44951CE019359CE7006D8A8E /* InfoPlist.strings in Resources */,
-				44951CE819359CE7006D8A8E /* Images.xcassets in Resources */,
+				4490EA04193C00E80059C0AD /* Media.xcassets in Resources */,
+				44C6AC48193A9F8100236151 /* Cups-of-Coffee-and-Tip-AYP1358167.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tipcalculator/TipViewController.m"
-            timestampString = "423201440.882551"
+            timestampString = "423280402.77361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-textFieldUpdated"
             landmarkType = "5">
          </BreakpointContent>
