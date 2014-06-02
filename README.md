@@ -1,4 +1,4 @@
 tipcalculator
 =============
 
-![screenshot] (https://github.com/kristinafrost/tipcalculator/blob/master/screen1.png)
+![screenshot] (/screen1.png?raw=true "Screenshot")
